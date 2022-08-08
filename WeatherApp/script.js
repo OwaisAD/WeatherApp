@@ -17,7 +17,7 @@ let cityDefault = "Copenhagen"
  * API url
  * https://api.openweathermap.org/data/2.5/weather?q=detroit&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=imperial
  */
-// Method to acces 
+// Method to fetch data from the API
 const getWeatherData = async (city) => {
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
     const response = await fetch(URL)
@@ -25,22 +25,14 @@ const getWeatherData = async (city) => {
     return data
 }
 
-// run first time loading website
-
-/**
- * Retrieve city input and get the weather data
- * HINT: Use the promise returned from getWeatherData()
- */
+// Retrieving the city/country input and using the promise from the getWeatherData function
 const searchCity = async () => {
     const city = document.getElementById('city-input').value;
     const data = await getWeatherData(city) //.then(value => console.log(value))
     showWeatherData(data)
 }
 
-/**
- * Show the weather data in HTML
- * HINT: make sure to console log the weatherData to see how the data looks like
- */
+// Displaying the data on the DOM
 const showWeatherData = (weatherData) => {
     console.log(weatherData, "✅")
     cityNameDiv.innerText = document.getElementById("city-input").value
@@ -51,15 +43,16 @@ const showWeatherData = (weatherData) => {
     humidityDiv.innerText = weatherData.main.humidity
     minTempDiv.innerText = weatherData.main.temp_min
     maxTempDiv.innerText = weatherData.main.temp_max
-    //The API does not give any data in regards to when the forecast last updated, so I simply display the current time
+    //The API does not give any data in regards to when the forecast was last updated, so I simply display the current time
     const currTime = new Date()
     lastUpdatedDiv.innerText = currTime.toLocaleTimeString()
 }
 
+// run on website load
 // a little trick that waits for the website to be fully loaded
 // then it fetches data for Copenhagen, which I've set to be the default city
 document.addEventListener('DOMContentLoaded', async function () {
     const data = await getWeatherData(cityDefault)
     showWeatherData(data)
     cityNameDiv.innerText = cityDefault
-}, false);
+});
