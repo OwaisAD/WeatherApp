@@ -1,10 +1,13 @@
 # WeatherApp
 Weather app made with javascript + html/css/bootstrap calling an API through openweathermap
 
-Note - for some reason the API is bugging a bit with the temperatures - I will have a look at it
 
 ## Images
+Default page on load
+<img width="772" alt="default front page no lookup showing copenhagen" src="https://user-images.githubusercontent.com/33609590/183452386-c6374efa-6204-4be5-8b2f-9b5e0f401242.png">
 
-<img width="964" alt="default front page" src="https://user-images.githubusercontent.com/33609590/183440953-097235de-45a3-4575-b71d-39b60474ae8a.png">
 
-<img width="686" alt="Searching for city or country" src="https://user-images.githubusercontent.com/33609590/183441014-8acbf260-f749-4487-974d-2cf8f127e094.png">
+
+
+When looking up a city or a country
+<img width="716" alt="when searching for a city or a country" src="https://user-images.githubusercontent.com/33609590/183452522-812de696-7b62-4dcd-977e-3af916608ab4.png">
