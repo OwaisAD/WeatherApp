@@ -19,7 +19,7 @@ let cityDefault = "Copenhagen"
  */
 // Method to fetch data from the API
 const getWeatherData = async (city) => {
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
     const response = await fetch(URL)
     const data = await response.json()
     return data
